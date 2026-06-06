@@ -1,0 +1,41 @@
+[package]
+name = "ziguard-rs"
+version = "0.1.1"
+edition = "2021"
+rust-version = "1.74"
+description = "Rust port of upstream ziguard.awk — the tzdb source-profile (main/vanguard/rearguard) transformer"
+license = "Apache-2.0"
+repository = "https://github.com/infinityabundance/ziguard-rs"
+homepage = "https://github.com/infinityabundance/ziguard-rs"
+authors = ["infinityabundance"]
+keywords = ["tzdb", "timezone", "ziguard", "vanguard", "rearguard"]
+categories = ["command-line-utilities", "parser-implementations"]
+readme = "README.md"
+exclude = ["lab/", "reports/", "fuzz/", "tests/fixtures/oracle/", ".gitignore", "STATUS.md"]
+
+[[bin]]
+name = "ziguard-rs"
+path = "src/main.rs"
+
+[features]
+# Exposes the private pure helpers to the (detached) fuzz crate only.
+fuzzing = []
+
+[dependencies]
+# The single justified dependency: ziguard.awk is fundamentally an ERE stream
+# transformer (sub/match over POSIX extended regular expressions). Porting those
+# ~25 patterns by hand would be more error-prone than faithful. `regex` is the
+# only dependency; this crate's own code is `#![forbid(unsafe_code)]`.
+regex = "1"
+
+[dev-dependencies]
+# Test-only: cryptographically pin the full-oracle output hashes.
+sha2 = "0.10"
+
+# `cfg(kani)` gates the bounded-proof harnesses in src/lib.rs; declare it so
+# `clippy -D warnings` stays green on a normal (non-kani) build.
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(kani)'] }
+
+[profile.release]
+overflow-checks = true

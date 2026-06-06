@@ -1,0 +1,17 @@
+# Rust build output
+/target
+**/*.rs.bk
+
+# Fuzzing: build dir + generated corpora/artifacts (re-derivable)
+/fuzz/target
+/fuzz/corpus
+/fuzz/artifacts
+/fuzz/Cargo.lock
+
+# Lab: re-fetchable admitted source + re-derivable oracle outputs + transient work
+# (the campaign harness, results table, and hash manifests ARE kept)
+/lab/admit
+/lab/oracle/*.zi
+/lab/rs
+/lab/releases/work
+*.log

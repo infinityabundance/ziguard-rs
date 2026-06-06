@@ -1,0 +1,15 @@
+Zone	Africa/Windhoek	1:08:24 -	LMT	1892 Feb 8
+			1:30	-	%z	1903 Mar
+			2:00	-	SAST	1942 Sep 20  2:00
+			2:00	1:00	SAST	1943 Mar 21  2:00
+			2:00	-	SAST	1990 Mar 21 # independence
+# Vanguard section, for zic and other parsers that support negative DST.
+			2:00	Namibia	%s
+# Rearguard section, for parsers lacking negative DST; see ziguard.awk.
+#			2:00	-	CAT	1994 Mar 21  0:00
+# From Paul Eggert (2017-04-07):
+# The official date of the 2017 rule change was 2017-10-24.  See:
+# http://www.lac.org.na/laws/annoSTAT/Namibian%20Time%20Act%209%20of%202017.pdf
+#			1:00	Namibia	%s	2017 Oct 24
+#			2:00	-	CAT
+# End of rearguard section.

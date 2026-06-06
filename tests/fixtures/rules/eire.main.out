@@ -1,0 +1,7 @@
+Rule	Eire	1971	only	-	Oct	31	 2:00u	-1:00	-
+Rule	Eire	1972	1980	-	Mar	Sun>=16	 2:00u	0	-
+Rule	Eire	1972	1980	-	Oct	Sun>=23	 2:00u	-1:00	-
+Rule	Eire	1981	max	-	Mar	lastSun	 1:00u	0	-
+Rule	Eire	1981	1989	-	Oct	Sun>=23	 1:00u	-1:00	-
+Rule	Eire	1990	1995	-	Oct	Sun>=22	 1:00u	-1:00	-
+Rule	Eire	1996	max	-	Oct	lastSun	 1:00u	-1:00	-

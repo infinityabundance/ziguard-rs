@@ -1,0 +1,11 @@
+Zone	Europe/Prague	0:57:44 -	LMT	1850
+			0:57:44	-	PMT	1891 Oct    # Prague Mean Time
+			1:00	C-Eur	CE%sT	1945 May  9
+			1:00	Czech	CE%sT	1946 Dec  1  3:00
+# Vanguard section, for zic and other parsers that support negative DST.
+#			1:00	-1:00	GMT	1947 Feb 23  2:00
+# Rearguard section, for parsers lacking negative DST; see ziguard.awk.
+			0:00	-	GMT	1947 Feb 23  2:00
+# End of rearguard section.
+			1:00	Czech	CE%sT	1979
+			1:00	EU	CE%sT

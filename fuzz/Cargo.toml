@@ -1,0 +1,37 @@
+[package]
+name = "ziguard-rs-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2021"
+
+[package.metadata]
+cargo-fuzz = true
+
+# Detached crate: an empty [workspace] makes this its own workspace root so the
+# parent crate's `cargo build`/`test`/`clippy`/`fmt` never compile it. The fuzz
+# crate is inert to the parent gate (the zic-rs `fuzz/` discipline).
+[workspace]
+
+[dependencies]
+libfuzzer-sys = "0.4"
+
+[dependencies.ziguard-rs]
+path = ".."
+features = ["fuzzing"]
+
+[[bin]]
+name = "transform"
+path = "fuzz_targets/transform.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "helpers"
+path = "fuzz_targets/helpers.rs"
+test = false
+doc = false
+bench = false
+
+[profile.release]
+debug = 1
